@@ -1,16 +1,22 @@
 import React from "react";
 import ReactDom from "react-dom";
 
-function Example() {
-    return (
-        <div>
-            <h1>My App!!! </h1>
+// My Components
+import Header from "./components/Header";
+import HomeGuest from "./components/HomeGuest";
+import Footer from "./components/Footer";
 
-        </div>
+function Main() {
+    return (
+        <>
+            <Header />
+            <HomeGuest />
+            <Footer />
+        </>
     )
 }
 
-ReactDom.render(<Example />, document.getElementById("app"));
+ReactDom.render(<Main />, document.getElementById("app"));
 
 /* For asinc browser reload. Dont even need to save in phpStorm and reload browser! */
 if (module.hot) {
