@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 
-function HeaderLoggedOut() {
+function HeaderLoggedOut(props) {
     const [username, setUsername] = useState();
     const [password, setpassword] = useState();
 
@@ -16,6 +16,10 @@ function HeaderLoggedOut() {
 
             if (response.data) {
                 console.log(response.data);
+                localStorage.setItem('complexAppToken', response.data.token);
+                localStorage.setItem('complexAppUsername', response.data.username);
+                localStorage.setItem('complexAppAvatar', response.data.avatar);
+                props.setLoggedIn(true)
             } else {
                 console.log('Incorrect username / password');
             }
